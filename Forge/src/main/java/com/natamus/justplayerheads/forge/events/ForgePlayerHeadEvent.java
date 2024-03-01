@@ -22,7 +22,7 @@ public class ForgePlayerHeadEvent {
 	@SubscribeEvent
 	public void entityDeath(LivingDeathEvent e) {
 		Entity entity = e.getEntity();
-		Level level = entity.getCommandSenderWorld();
+		Level level = entity.level;
         if (level.isClientSide) {
             return;
         }

@@ -5,9 +5,10 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.natamus.collective.functions.HeadFunctions;
+import com.natamus.collective.functions.ItemFunctions;
 import com.natamus.collective.functions.StringFunctions;
 import com.natamus.justplayerheads.config.ConfigHandler;
-import com.natamus.justplayerheads.util.Variables;
+import com.natamus.justplayerheads.data.Variables;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -20,23 +21,27 @@ public class CommandJph {
 	public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
 		dispatcher.register(Commands.literal("jph")
 				.requires((iCommandSender) -> iCommandSender.getEntity() instanceof Player && iCommandSender.hasPermission(2))
+				.then(Commands.literal("head")
 				.then(Commands.argument("name", StringArgumentType.word())
 				.then(Commands.argument("amount", IntegerArgumentType.integer(1, 64))
 				.executes((command) -> {
 					int amount = 1;
-					int specifiedamount = IntegerArgumentType.getInteger(command, "amount");
-					if (specifiedamount > 1 && specifiedamount <= 64) {
-						amount = specifiedamount;						
+					int specifiedAmount = IntegerArgumentType.getInteger(command, "amount");
+					if (specifiedAmount > 1 && specifiedAmount <= 64) {
+						amount = specifiedAmount;
 					}
 					
 					processJph(command, amount);
 					return 1;
-				})))
+				}))))
+
+				.then(Commands.literal("head")
 				.then(Commands.argument("name", StringArgumentType.word())
 				.executes((command) -> {
 					processJph(command, 1);
 					return 1;
-				}))
+				})))
+
 				.then(Commands.literal("cache")
 				.executes((command) -> {
 					CommandSourceStack source = command.getSource();
@@ -46,6 +51,7 @@ public class CommandJph {
 					StringFunctions.sendMessage(source, "The player head texture cache has been emptied.", ChatFormatting.DARK_GREEN);
 					return 1;
 				}))
+
 				.executes((command) -> {
 					CommandSourceStack source = command.getSource();
 
@@ -89,7 +95,7 @@ public class CommandJph {
 			StringFunctions.sendMessage(source, message, ChatFormatting.DARK_GREEN);
 			
 			Player player = source.getPlayer();
-			player.spawnAtLocation(head, 1);
+			ItemFunctions.giveOrDropItemStack(player, head);
 		}
 	}
 }

@@ -3,7 +3,7 @@ package com.natamus.justplayerheads.events;
 import com.natamus.collective.data.GlobalVariables;
 import com.natamus.collective.functions.HeadFunctions;
 import com.natamus.justplayerheads.config.ConfigHandler;
-import com.natamus.justplayerheads.util.Variables;
+import com.natamus.justplayerheads.data.Variables;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,29 +20,27 @@ public class PlayerHeadEvent {
 			return;
 		}
 		
-		String name = player.getName().getString();
+		String playerName = player.getName().getString();
 		
-		ItemStack head = null;
+		ItemStack headStack = null;
 		if (ConfigHandler.enablePlayerHeadCaching) {
-			if (Variables.headcache.containsKey(name.toLowerCase())) {
-				head = Variables.headcache.get(name.toLowerCase());
+			if (Variables.headcache.containsKey(playerName.toLowerCase())) {
+				headStack = Variables.headcache.get(playerName.toLowerCase());
 			}
 		}
 		
-		if (head == null) {
-			head = HeadFunctions.getPlayerHead(name, 1);
+		if (headStack == null) {
+			headStack = HeadFunctions.getPlayerHead(playerName, 1);
 			
-			if (head != null && ConfigHandler.enablePlayerHeadCaching) {
-				ItemStack cachehead = head.copy();
-				
-				Variables.headcache.put(name.toLowerCase(), cachehead);
+			if (headStack != null && ConfigHandler.enablePlayerHeadCaching) {
+				Variables.headcache.put(playerName.toLowerCase(), headStack.copy());
 			}
 		}
 		
-		if (head == null) {
+		if (headStack == null) {
 			return;
 		}
 		
-		player.spawnAtLocation(head, 1);
+		player.spawnAtLocation(headStack, 1);
 	}
 }

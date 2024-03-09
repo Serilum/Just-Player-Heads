@@ -6,7 +6,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.natamus.collective.functions.HeadFunctions;
 import com.natamus.collective.functions.ItemFunctions;
-import com.natamus.collective.functions.StringFunctions;
+import com.natamus.collective.functions.MessageFunctions;
 import com.natamus.justplayerheads.config.ConfigHandler;
 import com.natamus.justplayerheads.data.Variables;
 import net.minecraft.ChatFormatting;
@@ -48,15 +48,15 @@ public class CommandJph {
 					
 					Variables.headcache = new HashMap<String, ItemStack>();
 					
-					StringFunctions.sendMessage(source, "The player head texture cache has been emptied.", ChatFormatting.DARK_GREEN);
+					MessageFunctions.sendMessage(source, "The player head texture cache has been emptied.", ChatFormatting.DARK_GREEN);
 					return 1;
 				}))
 
 				.executes((command) -> {
 					CommandSourceStack source = command.getSource();
 
-					StringFunctions.sendMessage(source, "Allows you to get the head of a player.", ChatFormatting.DARK_GREEN);
-					StringFunctions.sendMessage(source, " Usage: /jph playerName (amount)", ChatFormatting.DARK_GREEN);
+					MessageFunctions.sendMessage(source, "Allows you to get the head of a player.", ChatFormatting.DARK_GREEN);
+					MessageFunctions.sendMessage(source, " Usage: /jph playerName (amount)", ChatFormatting.DARK_GREEN);
 					return 1;
 				})
 			);
@@ -88,11 +88,11 @@ public class CommandJph {
 
 		if (head == null) {
 			String message = "Unable to generate the player head. Either the player '" + target + "' does not exist or the Mojang API server has had too many requests in a short period of time.";
-			StringFunctions.sendMessage(source, message, ChatFormatting.DARK_RED);
+			MessageFunctions.sendMessage(source, message, ChatFormatting.DARK_RED);
 		}
 		else {
 			String message = "Succesfully generated the head of the player '" + target + "'.";
-			StringFunctions.sendMessage(source, message, ChatFormatting.DARK_GREEN);
+			MessageFunctions.sendMessage(source, message, ChatFormatting.DARK_GREEN);
 			
 			Player player = source.getPlayer();
 			ItemFunctions.giveOrDropItemStack(player, head);

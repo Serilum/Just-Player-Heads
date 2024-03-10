@@ -6,7 +6,7 @@ logoFile="icon.png"
 
 [[mods]]
 modId="justplayerheads"
-version="3.5"
+version="3.6"
 displayName="Just Player Heads"
 displayURL="https://serilum.com/mod/just-player-heads"
 authors="Rick South"
@@ -23,7 +23,7 @@ If you would like to contribute too, check out https://serilum.com/donate. Appre
     modId="collective"
     type="required"
     mandatory=true
-    versionRange="[7.36,)"
+    versionRange="[7.39,)"
     ordering="NONE"
     side="BOTH"
 

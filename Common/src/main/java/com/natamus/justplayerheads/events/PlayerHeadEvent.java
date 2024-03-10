@@ -1,10 +1,8 @@
 package com.natamus.justplayerheads.events;
 
 import com.natamus.collective.data.GlobalVariables;
-import com.natamus.collective.functions.HeadFunctions;
+import com.natamus.collective.features.PlayerHeadCacheFeature;
 import com.natamus.justplayerheads.config.ConfigHandler;
-import com.natamus.justplayerheads.data.Variables;
-
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -22,25 +20,9 @@ public class PlayerHeadEvent {
 		
 		String playerName = player.getName().getString();
 		
-		ItemStack headStack = null;
-		if (ConfigHandler.enablePlayerHeadCaching) {
-			if (Variables.headcache.containsKey(playerName.toLowerCase())) {
-				headStack = Variables.headcache.get(playerName.toLowerCase());
-			}
+		ItemStack headStack = PlayerHeadCacheFeature.getPlayerHeadStackFromCache(playerName);
+		if (headStack != null) {
+			player.spawnAtLocation(headStack, 1);
 		}
-		
-		if (headStack == null) {
-			headStack = HeadFunctions.getPlayerHead(playerName, 1);
-			
-			if (headStack != null && ConfigHandler.enablePlayerHeadCaching) {
-				Variables.headcache.put(playerName.toLowerCase(), headStack.copy());
-			}
-		}
-		
-		if (headStack == null) {
-			return;
-		}
-		
-		player.spawnAtLocation(headStack, 1);
 	}
 }

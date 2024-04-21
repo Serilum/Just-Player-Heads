@@ -53,7 +53,7 @@ public class CommandJph {
 
 		String target = StringArgumentType.getString(command, "name");
 
-		ItemStack headStack = PlayerHeadCacheFeature.getPlayerHeadStackFromCache(target);
+		ItemStack headStack = PlayerHeadCacheFeature.getPlayerHeadStackFromCache(source.getLevel(), target);
 
 		if (headStack != null) {
 			headStack.setCount(amount);

@@ -20,7 +20,11 @@ public class PlayerHeadEvent {
 		
 		String playerName = player.getName().getString();
 		
-		ItemStack headStack = PlayerHeadCacheFeature.getPlayerHeadStackFromCache(playerName);
+		ItemStack headStack = PlayerHeadCacheFeature.getPlayerHeadStackFromCache(player);
+		if (headStack == null) {
+			headStack = PlayerHeadCacheFeature.getPlayerHeadStackFromCache(player.serverLevel(), player.getName().getString());
+		}
+
 		if (headStack != null) {
 			player.spawnAtLocation(headStack, 1);
 		}

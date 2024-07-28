@@ -1,6 +1,7 @@
 package com.natamus.justplayerheads;
 
 import com.natamus.collective.check.RegisterMod;
+import com.natamus.collective.check.ShouldLoadCheck;
 import com.natamus.justplayerheads.forge.config.IntegrateForgeConfig;
 import com.natamus.justplayerheads.forge.events.ForgePlayerHeadEvent;
 import com.natamus.justplayerheads.util.Reference;
@@ -15,6 +16,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class ModForge {
 	
 	public ModForge() {
+		if (!ShouldLoadCheck.shouldLoad(Reference.MOD_ID)) {
+			return;
+		}
+
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::loadComplete);
 

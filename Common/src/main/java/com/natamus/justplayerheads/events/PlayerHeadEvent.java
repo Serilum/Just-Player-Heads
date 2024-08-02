@@ -6,11 +6,19 @@ import com.natamus.justplayerheads.config.ConfigHandler;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.player.Player;
 
 public class PlayerHeadEvent {
 	public static void onPlayerDeath(ServerLevel world, ServerPlayer player) {
 		if (!ConfigHandler.playerDropsHeadOnDeath) {
 			return;
+		}
+		
+		if (ConfigHandler.onlyDropHeadsByPlayerKill) {
+			if (!(damageSource.getDirectEntity() instanceof Player)) {
+				return;
+			}
 		}
 		
 		double num = GlobalVariables.random.nextDouble();

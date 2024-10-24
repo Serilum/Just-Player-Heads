@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="*"
+license="All rights reserved"
+issueTrackerURL="https://github.com/Serilum/.issue-tracker/labels/Mod:%20Just%20Player%20Heads"
+logoFile="icon.png"
+
+[[mods]]
+modId="justplayerheads"
+version="4.1"
+displayName="Just Player Heads"
+displayURL="https://serilum.com/mod/just-player-heads"
+authors="Rick South"
+description='''A minimalistic mod that adds a configurable chance for players to drop their respective heads on death and via a command. All heads are generated with texture-data.
+'''
+credits='''Thank you very much to my Membership sponsors for supporting the development of this mod:  
+
+Alister, Andrean Olgo, aternosorg, Cherriesaurus, kate1073, Michael W. S., Tyler Behl, XAgent   
+
+If you would like to contribute too, check out https://serilum.com/donate. Appreciate it! <3   
+'''
+
+[[dependencies.justplayerheads]]
+    modId="collective"
+    type="required"
+    versionRange="[7.88,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.justplayerheads]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.2,1.21.3]"
+    ordering="NONE"
+    side="BOTH"
+
+[[mixins]]
+    config = "justplayerheads.mixins.json"

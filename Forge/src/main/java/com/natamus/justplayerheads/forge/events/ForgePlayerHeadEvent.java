@@ -10,17 +10,15 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber
 public class ForgePlayerHeadEvent {
     @SubscribeEvent
-    public void registerCommands(RegisterCommandsEvent e) {
+    public static void registerCommands(RegisterCommandsEvent e) {
         CommandJph.register(e.getDispatcher());
     }
 	
 	@SubscribeEvent
-	public void entityDeath(LivingDeathEvent e) {
+	public static void entityDeath(LivingDeathEvent e) {
 		Entity entity = e.getEntity();
 		Level level = entity.level();
         if (level.isClientSide) {

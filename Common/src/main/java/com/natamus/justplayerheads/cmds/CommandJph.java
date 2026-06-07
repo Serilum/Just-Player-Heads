@@ -42,8 +42,8 @@ public class CommandJph {
 				.executes((command) -> {
 					CommandSourceStack source = command.getSource();
 
-					MessageFunctions.sendMessage(source, "Allows you to get the head of a player.", ChatFormatting.DARK_GREEN);
-					MessageFunctions.sendMessage(source, " Usage: /jph playerName (amount)", ChatFormatting.DARK_GREEN);
+					MessageFunctions.sendTranslatableMessage(source, "collective.justplayerheads.message.allowsgethead", ChatFormatting.DARK_GREEN);
+					MessageFunctions.sendTranslatableMessage(source, " ", "collective.justplayerheads.message.usagejphplayername", ChatFormatting.DARK_GREEN);
 					return 1;
 				})
 			);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "justplayerheads",
-  "version": "4.3",
+  "version": "4.4",
 
   "name": "Just Player Heads",
   "description": "A minimalistic mod that adds a configurable chance for players to drop their respective heads on death and via a command. All heads are generated with texture-data.",
@@ -23,7 +23,7 @@
     "fabric-api": "*",
     "minecraft": ">=26.1",
     "java": ">=25",
-    "collective": ">=8.17"
+    "collective": ">=8.25"
   },
 
   "custom": {
@@ -41,15 +41,12 @@
 	  "If you would like to contribute too, check out https://serilum.com/donate.",
 	  " ",
 	  "Membership sponsors:",
-	  " akanealw",
-	  " Alister",
 	  " Andrean Olgo",
 	  " aternosorg",
 	  " Cherriesaurus",
+	  " Linda Jansen",
+	  " Michelle Smith",
 	  " MWS",
-	  " t128",
-	  " Tyler Behl",
-	  " XAgent",
-	  " ตัวตรึง พระนคร"
+	  " Tyler Behl"
   ]
 }

@@ -6,7 +6,7 @@ logoFile="icon.png"
 
 [[mods]]
 modId="justplayerheads"
-version="4.3"
+version="4.4"
 displayName="Just Player Heads"
 displayURL="https://serilum.com/mod/just-player-heads"
 authors="Rick South"
@@ -14,7 +14,7 @@ description='''A minimalistic mod that adds a configurable chance for players to
 '''
 credits='''Thank you very much to my Membership sponsors for supporting the development of this mod:  
 
-akanealw, Alister, Andrean Olgo, aternosorg, Cherriesaurus, MWS, t128, Tyler Behl, XAgent, ตัวตรึง พระนคร   
+Andrean Olgo, aternosorg, Cherriesaurus, Linda Jansen, Michelle Smith, MWS, Tyler Behl   
 
 If you would like to contribute too, check out https://serilum.com/donate. Appreciate it! <3   
 '''
@@ -22,7 +22,7 @@ If you would like to contribute too, check out https://serilum.com/donate. Appre
 [[dependencies.justplayerheads]]
     modId="collective"
     mandatory=true
-    versionRange="[8.17,)"
+    versionRange="[8.25,)"
     ordering="NONE"
     side="BOTH"
 

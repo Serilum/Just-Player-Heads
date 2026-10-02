@@ -1,4 +1,4 @@
-package com.natamus.justplayerheads.cmds;
+package com.serilum.justplayerheads.cmds;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;

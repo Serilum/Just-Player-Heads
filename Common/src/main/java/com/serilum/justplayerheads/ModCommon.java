@@ -1,7 +1,7 @@
-package com.natamus.justplayerheads;
+package com.serilum.justplayerheads;
 
 import com.natamus.collective.features.PlayerHeadCacheFeature;
-import com.natamus.justplayerheads.config.ConfigHandler;
+import com.serilum.justplayerheads.config.ConfigHandler;
 
 public class ModCommon {
 

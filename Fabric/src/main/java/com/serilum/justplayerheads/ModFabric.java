@@ -1,11 +1,11 @@
-package com.natamus.justplayerheads;
+package com.serilum.justplayerheads;
 
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
 import com.natamus.collective.fabric.callbacks.CollectivePlayerEvents;
-import com.natamus.justplayerheads.cmds.CommandJph;
-import com.natamus.justplayerheads.events.PlayerHeadEvent;
-import com.natamus.justplayerheads.util.Reference;
+import com.serilum.justplayerheads.cmds.CommandJph;
+import com.serilum.justplayerheads.events.PlayerHeadEvent;
+import com.serilum.justplayerheads.util.Reference;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.server.level.ServerLevel;

@@ -1,7 +1,7 @@
-package com.natamus.justplayerheads.config;
+package com.serilum.justplayerheads.config;
 
 import com.natamus.collective.config.DuskConfig;
-import com.natamus.justplayerheads.util.Reference;
+import com.serilum.justplayerheads.util.Reference;
 
 import java.util.Arrays;
 import java.util.HashMap;

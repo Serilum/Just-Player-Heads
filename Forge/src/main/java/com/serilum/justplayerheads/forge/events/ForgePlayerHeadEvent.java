@@ -1,7 +1,7 @@
-package com.natamus.justplayerheads.forge.events;
+package com.serilum.justplayerheads.forge.events;
 
-import com.natamus.justplayerheads.cmds.CommandJph;
-import com.natamus.justplayerheads.events.PlayerHeadEvent;
+import com.serilum.justplayerheads.cmds.CommandJph;
+import com.serilum.justplayerheads.events.PlayerHeadEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -12,23 +12,23 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ForgePlayerHeadEvent {
-    @SubscribeEvent
-    public static void registerCommands(RegisterCommandsEvent e) {
-        CommandJph.register(e.getDispatcher());
-    }
+	@SubscribeEvent
+	public static void registerCommands(RegisterCommandsEvent e) {
+		CommandJph.register(e.getDispatcher());
+	}
 	
 	@SubscribeEvent
 	public static void entityDeath(LivingDeathEvent e) {
 		Entity entity = e.getEntity();
 		Level level = entity.level();
-        if (level.isClientSide) {
-            return;
-        }
+		if (level.isClientSide) {
+			return;
+		}
 
-        if (!(entity instanceof Player)) {
-            return;
-        }
+		if (!(entity instanceof Player)) {
+			return;
+		}
 
-        PlayerHeadEvent.onPlayerDeath((ServerLevel)level, (ServerPlayer)entity);
+		PlayerHeadEvent.onPlayerDeath((ServerLevel)level, (ServerPlayer)entity);
 	}
 }

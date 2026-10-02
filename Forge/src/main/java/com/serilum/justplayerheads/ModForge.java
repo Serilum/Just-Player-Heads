@@ -1,10 +1,10 @@
-package com.natamus.justplayerheads;
+package com.serilum.justplayerheads;
 
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
-import com.natamus.justplayerheads.forge.config.IntegrateForgeConfig;
-import com.natamus.justplayerheads.forge.events.ForgePlayerHeadEvent;
-import com.natamus.justplayerheads.util.Reference;
+import com.serilum.justplayerheads.forge.config.IntegrateForgeConfig;
+import com.serilum.justplayerheads.forge.events.ForgePlayerHeadEvent;
+import com.serilum.justplayerheads.util.Reference;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -32,7 +32,7 @@ public class ModForge {
 	}
 
 	private void loadComplete(final FMLLoadCompleteEvent event) {
-    	MinecraftForge.EVENT_BUS.register(ForgePlayerHeadEvent.class);
+		MinecraftForge.EVENT_BUS.register(ForgePlayerHeadEvent.class);
 	}
 
 	private static void setGlobalConstants() {

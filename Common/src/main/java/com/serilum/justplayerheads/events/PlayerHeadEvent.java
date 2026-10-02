@@ -1,8 +1,8 @@
-package com.natamus.justplayerheads.events;
+package com.serilum.justplayerheads.events;
 
 import com.natamus.collective.data.GlobalVariables;
 import com.natamus.collective.features.PlayerHeadCacheFeature;
-import com.natamus.justplayerheads.config.ConfigHandler;
+import com.serilum.justplayerheads.config.ConfigHandler;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
